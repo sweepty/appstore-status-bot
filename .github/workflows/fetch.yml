@@ -23,8 +23,8 @@ jobs:
           PRIVATE_KEY: $PRIVATE_KEY
           KEY_ID: $KEY_ID
           ISSUER_ID: $ISSUER_ID
-          BUNDLE_ID: $secrets.BUNDLE_ID
-          SLACK_WEBHOOK: $secrets.SLACK_WEBHOOK
+          BUNDLE_ID: $BUNDLE_ID
+          SLACK_WEBHOOK: $SLACK_WEBHOOK
           LANGUAGE: "ko"
       - name: push
         uses: github-actions-x/commit@v2.7
