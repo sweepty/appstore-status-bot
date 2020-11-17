@@ -20,16 +20,17 @@ jobs:
       - run: npm install 
       - run: node Sources/check_status.js
         env: 
-          PRIVATE_KEY: $PRIVATE_KEY
-          KEY_ID: $KEY_ID
-          ISSUER_ID: $ISSUER_ID
-          BUNDLE_ID: $BUNDLE_ID
-          SLACK_WEBHOOK: $SLACK_WEBHOOK
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          KEY_ID: ${{ secrets.KEY_ID }}
+          ISSUER_ID: ${{ secrets.ISSUER_ID }}
+          BUNDLE_ID: ${{ secrets.BUNDLE_ID }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           LANGUAGE: "ko"
       - name: push
         uses: github-actions-x/commit@v2.7
         with:
-          github-token: $TOKEN
+          github-token: ${{ secrets.TOKEN }}
           push-branch: 'master'
           commit-message: 'Store Appstore Info'
           force-add: 'true'
