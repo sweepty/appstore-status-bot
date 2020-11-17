@@ -29,6 +29,8 @@ jobs:
           LANGUAGE: "ko"
       - name: push
         uses: github-actions-x/commit@v2.7
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         with:
           github-token: ${{ secrets.TOKEN }}
           push-branch: 'master'
